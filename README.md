@@ -1,6 +1,6 @@
 # Game Aliens for C++ course at MIPT
 This is my project for C++ course. Some screenshots:  
-![alt text](https://raw.githubusercontent.com/malmakova-na/alien_game_cpp/master/screenshots/screen1.png) ![alt text](https://raw.githubusercontent.com/malmakova-na/alien_game_cpp/master/screenshots/screen2.png)  
+<img src="https://raw.githubusercontent.com/malmakova-na/alien_game_cpp/master/screenshots/screen1.png" width="45%"></img> <img src="https://raw.githubusercontent.com/malmakova-na/alien_game_cpp/master/screenshots/screen2.png" width="45%"/>
 ## How to play
 You need to blow up the planets by pushing them into black holes. Use arrows to move alien dude. Press "R" for restart level, press space to make the alien start to move randomly.
 ## How to install on Linux
