@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Map.h"
 
 class Game {
@@ -8,6 +9,6 @@ private:
 	Map map;
 public:
 	Game(sf::Vector2u w_size);
-	void start_level(int level);
+	int start_level(int level);
 	void start_game();
 };

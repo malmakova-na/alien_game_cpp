@@ -1,8 +1,7 @@
-#include "pch.h"
 #include "Game.h"
 #include <iostream>
-#include "Windows.h"
 #include <cstdlib>
+#include <unistd.h>
 
 std::string moves = "lrud";
 
@@ -12,7 +11,7 @@ Game::Game(sf::Vector2u w_size) {
 	window.setTitle("My Game");
 }
 
-void Game::start_level(int level) {
+int Game::start_level(int level) {
 	bool self_flag = 0;
 	int steps = 0;
 	std::string path = "levels/" + std::to_string(level) + ".txt";
@@ -30,15 +29,18 @@ void Game::start_level(int level) {
 			window.clear(sf::Color::White);
 			map.draw_map(window);
 			window.display();
-			Sleep(300);
+			usleep(300000);
 		}
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed)
 				window.close();
 			else if (event.type == sf::Event::KeyPressed) {
-				if (event.key.code == sf::Keyboard::Space)
+				if (event.key.code == sf::Keyboard::Space) {
 					self_flag = !self_flag;
-				
+				}
+				if (event.key.code == sf::Keyboard::R) {
+					return 1;
+				}
 				if(!self_flag) {
 					if (event.key.code == sf::Keyboard::Left) {
 						steps += map.step('l');
@@ -80,6 +82,7 @@ void Game::start_level(int level) {
 		map.draw_map(window);
 		window.display();
 	}
+	return 0;
 }
 
 void Game::start_game() {
@@ -90,9 +93,9 @@ void Game::start_game() {
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-			std::cout << "start!\n";
-			start_level(i+1);
+		std::cout << "start level " << i + 1 << "\n";
+		int r = start_level(i + 1);
+		if (r == 0){
 			i = (i + 1) % n;
 		}
 	}

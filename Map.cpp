@@ -1,6 +1,4 @@
-#include "pch.h"
 #include "Map.h"
-#include "Windows.h"
 #include <fstream>
 #include <iostream>
 #include <algorithm>
@@ -187,6 +185,7 @@ int Map::step(char c) {
 			dude.x += 1;
 		}
 	}
+	return 0;
 }
 
 bool Map::is_complete() {
